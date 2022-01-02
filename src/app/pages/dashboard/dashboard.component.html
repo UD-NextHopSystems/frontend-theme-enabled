@@ -1,0 +1,254 @@
+<!-- <nb-layout>
+
+<nb-layout-column>
+  <nb-flip-card>
+    <nb-card-front>
+    <nb-card status="success">
+      <nb-card-header> Based on IP Addresses </nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card>
+      <nb-card-header> Information </nb-card-header>
+      <nb-card-body>
+        <p>
+          Information shown according to the data from the database
+        </p>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>
+</nb-layout-column>
+<nb-layout-column>
+<nb-flip-card>
+  <nb-card-front>
+    <nb-card status="success">
+      <nb-card-header> Based on IP Addresses </nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+
+          [data]="pieChartData"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card>
+      <nb-card-header> Labels </nb-card-header>
+      <nb-card-body>
+        <p>
+          Information shown according to the data from the database
+        </p>
+      </nb-card-body>
+      <nb-card-footer>
+        flip the card to see more details
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>
+</nb-layout-column>
+
+<div *ngIf="pieChartLabels.length == 0">
+  <p>
+    <b> No data available.... </b>
+  </p>
+</div>
+</nb-layout> -->
+
+
+<div class="card-row">
+  <div class="card-col">
+    <nb-card size="medium">
+      <nb-card-header>Medium card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+
+  </div>
+  <div class="card-col">
+    <nb-card size="medium">
+      <nb-card-header>Medium card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          chartType="bubble"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="card-col">
+    <nb-card size="medium">
+      <nb-card-header>Medium card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="card-row">
+  <div class="card-col">
+    <nb-card size="tiny">
+      <nb-card-header>Tiny card</nb-card-header>
+      <nb-card-body>This shows information that is related to kafka</nb-card-body>
+    </nb-card>
+    <nb-card size="medium">
+      <nb-card-header>Medium card</nb-card-header>
+      <nb-card-body>
+        <canvas
+        [labels]="pieChartLabels"
+          baseChart
+          [data]="pieChartData"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="card-col">
+    <nb-card size="medium">
+      <nb-card-header>Giant card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [labels]="pieChartLabels"
+          [data]="pieChartData"
+          chartType="line"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header>Tiny card</nb-card-header>
+      <nb-card-body>This shows information that is related to kafka</nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+
+<div class="card-row">
+  <div class="card-col">
+    <nb-card size="tiny">
+      <nb-card-header>Title for Information 1</nb-card-header>
+      <nb-card-body>
+        Information 1
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header>Title for Information 2</nb-card-header>
+      <nb-card-body>
+        Information 2
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header>Title for Information 3</nb-card-header>
+      <nb-card-body>
+        Information 3
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="card-col">
+    <nb-card size="medium">
+      <nb-card-header>Medium card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          chartType="bar"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header>Tiny card</nb-card-header>
+      <nb-card-body>This shows information that is related to kafka</nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="card-row">
+  <div class="card-col">
+    <nb-card size="tiny">
+      <nb-card-header>Tiny card</nb-card-header>
+    </nb-card>
+    <nb-card size="medium">
+      <nb-card-header>Medium card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          chartType="scatter"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="card-col">
+    <nb-card size="giant">
+      <nb-card-header>Giant card</nb-card-header>
+      <nb-card-body>
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          chartType="doughnut"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+        >
+        </canvas>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

@@ -1,0 +1,56 @@
+<!-- <nb-layout>
+  <nb-layout-header fixed>
+      Next Hop Systems
+  </nb-layout-header>
+
+  <nb-sidebar>
+  Sidebar Component
+  </nb-sidebar>
+
+  <nb-layout-column>
+    Page Content <button nbButton>Hello World</button>
+  </nb-layout-column>
+
+  <nb-layout-footer>
+    <nb-layout-column>
+      Footer Content
+    </nb-layout-column>
+  </nb-layout-footer>
+</nb-layout> -->
+
+<nb-layout>
+  <ng-progress direction = ltr+ speed = 200 trickleSpeed = 300 debounceTime = 0 meteor = true spinner = true spinnerPosition = right thick = false fixed = true min = 8 max = 100 ease = linear color = red></ng-progress>
+  <nb-layout-header fixed>
+    <button nbButton (click)="toggle()">
+      <nb-icon icon="bars" pack="fa"></nb-icon>
+    </button>
+
+    <div style="margin-top: 10px; margin-left: 10px;"><h3>Next Hop Systems</h3></div>
+
+<div style="float: right; position: absolute; right: 1%" fxHide fxShow.gt-lg>
+  <nb-search type="rotate-layout" hint="Global Search" placeholder="Enter something to search globally"></nb-search>
+  <nb-select placeholder="Select Theme" [(selected)]="selectedTheme" (selectedChange)="changeTheme($event)">
+    <nb-option value="default">Default</nb-option>
+    <nb-option value="dark">Dark</nb-option>
+    <nb-option value="cosmic">Cosmic</nb-option>
+    <nb-option value="corporate">Corporate</nb-option>
+  </nb-select>
+
+  <nb-user style="float: right; margin-left: 10px" name="Uday Kumar Thota" title="Software Engineer" onlyPicture="true"></nb-user>
+
+</div>
+</nb-layout-header>
+
+  <nb-sidebar responsive="true" tag="left">
+    <nb-menu [items]="items" pack="fax"></nb-menu>
+  </nb-sidebar>
+
+  <nb-layout-column class="colored-column-warning">
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer>
+      <!-- Created with ♥ by Uday Kumar Thota -->
+      Created by NextHop Systems
+  </nb-layout-footer>
+</nb-layout>

@@ -1,0 +1,45 @@
+.rightfab{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  height: 8%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-table, .mat-paginator{
+  width: 98%;
+  margin-left: 0.5%;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.mat-column-ip,.mat-column-name,.mat-column-port,
+.mat-column-useNSO,.mat-column-isEnabled,.mat-column-area,.mat-column-city,
+.mat-column-state,.mat-column-country{
+  width: 102px;
+  margin: 8px;
+  font-size: large;
+}
+
+.mat-column-edit, .mat-column-delete{
+  width: 2%;
+}
+
+table{
+  margin-top: 55vh;
+}

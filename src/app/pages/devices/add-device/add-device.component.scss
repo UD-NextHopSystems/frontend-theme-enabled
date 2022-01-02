@@ -1,0 +1,47 @@
+mat-form-field{
+  width: 99%;
+}
+
+.title{
+  display: flex;
+}
+
+.actionRow{
+  display: flex;
+}
+
+.actionRow button{
+  margin: 10px;
+  float: right;
+}
+
+:host ::ng-deep nb-stepper .step-content {
+  text-align: center;
+  button {
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+}
+
+.lorem {
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  padding-bottom: 1rem;
+}
+
+.linear-mode-button {
+  margin-bottom: 1rem;
+}
+
+.label{
+  float: left;
+  margin-left: 10px;
+  visibility: hidden;
+}
+
+.bini{
+  margin-top: 20px !important;
+}

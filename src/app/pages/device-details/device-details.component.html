@@ -1,0 +1,121 @@
+<nb-card class="dialog-card sample">
+  <nb-card-header>
+    <div class="nav">
+      <nb-action
+        (click)="closeDialog()"
+        icon="close-outline"
+        ></nb-action>
+        <!-- class="btn" -->
+
+      <nb-action (click)="edit()" icon="edit-outline" class="btn edit"
+        >edit</nb-action
+      >
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-layout-column>
+      <div class="details-main">
+
+        <div *ngIf="!isEditing">
+          <h2>Device Details</h2>
+
+          <table>
+            <tr>
+              <td><p>Name</p></td>
+              <td>
+                <p>{{ deviceData["Name"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>IP Address</p></td>
+              <td>
+                <p>{{ deviceData["Ip"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>Port Address</p></td>
+              <td>
+                <p>{{ deviceData["Port"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>User Name</p></td>
+              <td>
+                <p>{{ deviceData["Username"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>Password</p></td>
+              <td>
+                <p>{{ deviceData["Password"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>Area</p></td>
+              <td>
+                <p>{{ deviceData["macDetails"]["Area"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>City</p></td>
+              <td>
+                <p>{{ deviceData["macDetails"]["City"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>State</p></td>
+              <td>
+                <p>{{ deviceData["macDetails"]["State"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>Country</p></td>
+              <td>
+                <p>{{ deviceData["macDetails"]["Country"] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>Latitude</p></td>
+              <td>
+                <p>{{ deviceData["coordinates"]["geoLocation"][0] }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td><p>Longitude</p></td>
+              <td>
+                <p>{{ deviceData["coordinates"]["geoLocation"][1] }}</p>
+              </td>
+            </tr>
+          </table>
+
+          <div>
+            <nb-toggle
+              color="primary"
+              [(ngModel)]="deviceData.IsEnabled"
+              (change)="changeStatus(deviceData['_id'], $event)">
+              Device Status
+            </nb-toggle>
+          </div>
+
+          <div>
+            <h4>Device Config</h4>
+            {{ this.devConfig }}
+            <h4>Device Capabilities</h4>
+            {{ this.devCapabilities }}
+          </div>
+        </div>
+
+        <div *ngIf="isEditing">
+          <ud-add-device
+            [isLinear]="false"
+            [device]="deviceData"
+            [showCloseButton]="false"
+          ></ud-add-device>
+        </div>
+
+
+
+      </div>
+    </nb-layout-column>
+  </nb-card-body>
+</nb-card>

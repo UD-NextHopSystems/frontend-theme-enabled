@@ -1,0 +1,61 @@
+.btn {
+  color: white;
+  /* background-color: white; */
+  /* color: blueviolet; */
+  font-size: 32px;
+  cursor: pointer;
+  /* border-radius: 100%; */
+}
+
+.nav{
+  margin-bottom: 2%;
+}
+
+.nav nb-action:first-child
+{
+  float: left;
+}
+
+nb-action{
+  border: none !important;
+}
+
+.edit{
+  float: right;
+}
+
+/* Orange */
+.warning {
+
+  color: #3737f0;
+}
+
+.warning:hover {
+  background: blue;
+  color: white;
+}
+
+.details{
+  align-items: center;
+  color: blue;
+  margin: 2%;
+}
+
+.details label{
+  margin-right: 30px;
+  font-size: large;
+  font-weight: 800;
+}
+
+.details mat-label{
+  margin-left: 10px;
+  font-size: large;
+}
+
+table tr td:first{
+  font-size: large;
+}
+
+.details-main{
+  /* background: black; */
+}

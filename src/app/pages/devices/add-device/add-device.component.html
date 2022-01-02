@@ -1,0 +1,137 @@
+<!-- <nb-layout> -->
+  <!-- <nb-layout-column> -->
+    <nb-card>
+      <nb-card-body>
+    <div class="title">
+      <h3 style="width: 98%;">Add Device</h3>
+    <mat-icon style="width: 2%; cursor: pointer;" *ngIf="showCloseButton" (click)="onClose()">close</mat-icon>
+  </div>
+
+<!-- Nebular Stepper -->
+    <nb-stepper [linear]="isLinear" [orientation]="orientation">
+      <nb-step [stepControl]="deviceForm" label="Device Basic Details" >
+    <form [formGroup]="deviceForm" class="step-container">
+      <div>
+        <div class="input-group">
+          <!-- <label class="label" for="name">Device Name</label> -->
+          <input type="text"
+                 placeholder="Enter Device name"
+                 class="form-control"
+                 required
+                 id="name"
+                 nbInput
+                 formControlName="Name">
+
+        </div>
+          <!-- <input nbInput formControlName="Name" placeholder="Enter Device Name" /> -->
+      </div>
+       <div class="input-group">
+        <!-- <label class="label" for="ip">IP Address</label> -->
+          <input nbInput id="ip" formControlName="Ip" placeholder="Enter Device IP Address" class="form-control"
+          required/>
+      </div>
+      <div class="input-group">
+        <!-- <label class="label" for="port">Port</label> -->
+          <input nbInput id="port" formControlName="Port" placeholder="Enter Device Port Address" class="form-control"
+          required/>
+      </div>
+      <div class="input-group">
+        <!-- <label class="label" for="username">User Name</label> -->
+          <input nbInput id="username" formControlName="Username" placeholder="Enter User Name" class="form-control"
+          required/>
+      </div>
+      <div class="input-group" style="width: fit-content; padding-left: 5px; padding-right: 5px">
+
+        <nb-form-field class="form-control">
+          <!-- <label class="label" for="password">Password</label> -->
+          <input [type]="getInputType()" class="form-control" id="password" nbInput placeholder="Enter Password" formControlName="Password" required>
+          <button class="bini" nbSuffix nbButton ghost (click)="toggleShowPassword()">
+            <nb-icon [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                     pack="eva"
+                     [attr.aria-label]="showPassword ? 'hide password' : 'show password'">
+            </nb-icon>
+          </button>
+        </nb-form-field>
+        <!-- <label class="label" for="password">Password</label>
+          <input nbInput formControlName="Password" placeholder="Enter Password" class="form-control"
+          required/> -->
+      </div>
+      <div class="input-group">
+          <!-- <label class="label" for="isenabled">Is Enabled</label> -->
+          <nb-toggle fullWidth labelPosition="start" nbInput formControlName="IsEnabled" id="isenabled"
+          required>Device Status</nb-toggle>
+        </div>
+        <div>
+        <!-- <label class="label" for="usenso">Use NSO</label> -->
+          <nb-toggle nbInput labelPosition="left" formControlName="UseNSO" id="usenso"
+          required>Use NSO </nb-toggle>
+        </div>
+
+        <div class="actionRow">
+          <button nbButton nbStepperNext color="primary">Next</button>
+          <button *ngIf="deviceData" nbButton nbStepperNext color="warn" (click)="onEdit()">Modify Device Data</button>
+        </div>
+      </form>
+      </nb-step>
+
+      <nb-step [stepControl]="macForm" label="Mac & Location Details">
+
+    <form [formGroup]="macForm">
+      <div class="input-group">
+        <!-- <label class="label" for="city">City</label> -->
+          <input id="macaddress"
+          required
+          nbInput
+          formControlName="macAddress" placeholder="Enter Device Mac Address" />
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="area">Area</label>
+        <input type="text"
+        placeholder="Enter Area"
+        class="form-control"
+        id="area"
+        required
+        nbInput
+        formControlName="Area"
+ >
+      </div>
+      <!-- <div>
+          <input matInput formControlName="Area" placeholder="Enter Area" />
+      </div>-->
+
+      <div class="input-group">
+        <!-- <label class="label" for="city">City</label> -->
+          <input id="city"
+          required
+          nbInput
+          formControlName="City" placeholder="Enter City" />
+      </div>
+      <div class="input-group">
+        <!-- <label class="label" for="state">State</label> -->
+          <input id="state"
+          required
+          nbInput
+          formControlName="State" placeholder="Enter State" />
+      </div>
+      <div class="input-group">
+        <!-- <label class="label" for="country">Country</label> -->
+
+          <input formControlName="Country" placeholder="Enter Country" name="country"
+          required
+          nbInput
+          />
+      </div>
+
+      <div class="actionRow" >
+        <button *ngIf="!device" nbButton nbStepperNext color="primary" (click)="onSubmit()">Submit</button>
+        <button *ngIf="device" nbButton nbStepperNext [disabled]="!(deviceForm.dirty || macForm.dirty)" color="warn" (click)="onEdit(device['_id'])">Modify Device Data</button>
+      </div>
+    </form>
+
+      </nb-step>
+
+    </nb-stepper>
+
+  </nb-card-body>
+</nb-card>

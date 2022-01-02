@@ -1,0 +1,78 @@
+<h4>Device Details</h4>
+
+<div class="custommap">
+  <app-map [markersInfo]="geocodedData"></app-map>
+</div>
+<div fxShow.gt-md>
+
+<table [nbTreeGrid]="data" nbSort (sort)="changeSort($event)" equalColumnsWidth>
+  <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+  <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+  <ng-container [nbTreeGridColumnDef]="customColumn">
+    <th nbTreeGridHeaderCell [nbSortHeader]="getDirection(customColumn)" *nbTreeGridHeaderCellDef>
+      {{customColumn}}
+    </th>
+
+    <td nbTreeGridCell *nbTreeGridCellDef="let row">
+      {{row.data.Name}}
+        <!-- {{customColumn==='Name'?'Not':row['Name']}} -->
+    </td>
+  </ng-container>
+
+  <ng-container *ngFor="let column of macColumns" [nbTreeGridColumnDef]="column">
+    <th nbTreeGridHeaderCell [nbSortHeader]="getDirection(column)" *nbTreeGridHeaderCellDef>
+      {{column}}
+    </th>
+    <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <!-- {{column}} -->
+      <!-- {{row['macDetails']}} -->
+      <!-- {{row['macDetails'][column]}} -->
+      {{row.data['macDetails'][column]}}
+    </td>
+
+  </ng-container>
+
+  <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
+    <th nbTreeGridHeaderCell [nbSortHeader]="getDirection(column)" *nbTreeGridHeaderCellDef>
+      {{column}}
+    </th>
+
+    <td nbTreeGridCell *nbTreeGridCellDef="let row">
+      {{row.data[column]}}
+    </td>
+  </ng-container>
+
+  <ng-container *ngFor="let column of editColumns" [nbTreeGridColumnDef]="column">
+    <th nbTreeGridHeaderCell [nbSortHeader]="getDirection(column)" *nbTreeGridHeaderCellDef>
+      {{column}}
+    </th>
+
+    <td nbTreeGridCell *nbTreeGridCellDef="let row">
+      <nb-action icon="edit" (click)="openEditPage(row.data['Ip'])"></nb-action>
+    </td>
+  </ng-container>
+
+  <ng-container *ngFor="let column of deleteColumns" [nbTreeGridColumnDef]="column">
+    <th nbTreeGridHeaderCell [nbSortHeader]="getDirection(column)" *nbTreeGridHeaderCellDef>
+      {{column}}
+    </th>
+
+    <td nbTreeGridCell *nbTreeGridCellDef="let row">
+      <nb-action icon="trash"(click)="deleteDeviceById(row.data['Ip'])"></nb-action>
+    </td>
+  </ng-container>
+
+</table>
+
+
+<div class="rightfab">
+  <button mat-fab color="primary" (click)="addNewDevice()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<!-- <div fxShow.lt-md="true">
+  <h3 style="color: red;">
+    Device not supported
+  </h3>
+</div> -->
