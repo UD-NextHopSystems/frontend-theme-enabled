@@ -1,7 +1,6 @@
-import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
+import { Component, Input, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NbDialogRef, NbWindowRef } from '@nebular/theme';
+import { NbDialogRef } from '@nebular/theme';
 import { Coordinates } from '../../../models/coordinates.model';
 import { Device } from '../../../models/device.model';
 import { DeviceService } from '../../../services/device.service';

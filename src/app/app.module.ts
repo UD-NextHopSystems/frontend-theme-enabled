@@ -4,7 +4,6 @@ import { NbLayoutModule, NbSidebarModule, NbButtonModule, NbThemeModule, NbDialo
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ToastrModule } from 'ngx-toastr';
@@ -12,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { NgProgressHttpModule } from 'ngx-progressbar/http';
     NbLayoutModule,
     NbSidebarModule.forRoot(), //if this is your app.module
     NbButtonModule,
-    NbThemeModule.forRoot(),
+    NbThemeModule.forRoot({name: 'cosmic'}),
     BrowserAnimationsModule,
     NbEvaIconsModule,
     ToastrModule.forRoot(),
@@ -34,7 +34,8 @@ import { NgProgressHttpModule } from 'ngx-progressbar/http';
     NgProgressHttpModule,
     NbDialogModule.forRoot({closeOnEsc: false, closeOnBackdropClick: false}),
     NbWindowModule.forRoot({closeOnEsc: false, windowClass: 'sample', closeOnBackdropClick: false}),
-    NbToastrModule.forRoot()
+    NbToastrModule.forRoot(),
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

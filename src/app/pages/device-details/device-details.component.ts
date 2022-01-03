@@ -1,7 +1,5 @@
-import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Input, OnInit, Optional } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import { ToastrService } from 'ngx-toastr';
 import { Device } from '../../models/device.model';
 import { DeviceService } from '../../services/device.service';
 import { NetConfService } from '../../services/netconf.service';

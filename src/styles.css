@@ -2,6 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('../node_modules/@nebular/theme/styles/prebuilt/corporate.css');
+@import url('../node_modules/@nebular/theme/styles/prebuilt/cosmic.css');
+@import url('../node_modules/@nebular/theme/styles/prebuilt/dark.css');
+@import url('../node_modules/@nebular/theme/styles/prebuilt/default.css');
 
 /* width */
 ::-webkit-scrollbar {

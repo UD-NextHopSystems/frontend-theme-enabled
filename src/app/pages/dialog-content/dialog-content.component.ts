@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { NbWindowRef } from '@nebular/theme';
 
 @Component({

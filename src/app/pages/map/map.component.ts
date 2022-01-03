@@ -1,11 +1,8 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import * as mapboxgl from 'mapbox-gl';
 import { DeviceDetailsComponent } from '../device-details/device-details.component';
 import { Device } from '../../models/device.model';
-import { MacDetail } from '../../models/macdetails.model';
 import { DeviceService } from '../../services/device.service';
-import { MacdetailsService } from '../../services/macdetails.service';
 import { GeoMapService } from '../../services/map.service';
 import { NbDialogService } from '@nebular/theme';
 
@@ -18,7 +15,7 @@ export class MapComponent implements OnInit,AfterViewInit {
 
   @Input() markersInfo:Device[]=[];
 
-  constructor(private _dialogService:NbDialogService, private map: GeoMapService, private deviceService: DeviceService, private _matDialog?: MatDialog) {
+  constructor(private _dialogService:NbDialogService, private map: GeoMapService, private deviceService: DeviceService) {
   }
 
   ngOnInit() {
@@ -46,7 +43,7 @@ export class MapComponent implements OnInit,AfterViewInit {
     }, 5000);
   }
   getSettings(markerDetails:Device){
-    let config = new MatDialogConfig();
+    // let config = new MatDialogConfig();
     console.log('logging marker details'+markerDetails._id);
     this.deviceService.getDetailsById(markerDetails._id).subscribe((dev:Device) =>{
       let dialogRef = this._dialogService.open(DeviceDetailsComponent,{

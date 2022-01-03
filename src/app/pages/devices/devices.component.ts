@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { Device } from '../../models/device.model';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { AfterViewInit, ViewChild } from '@angular/core';
-import { Sort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+import { AfterViewInit } from '@angular/core';
 import { DeviceService } from '../../services/device.service';
 import { DialogContentComponent } from '../dialog-content/dialog-content.component';
 import { DeviceDetailsComponent } from '../device-details/device-details.component';
@@ -46,7 +44,7 @@ export class DevicesComponent implements AfterViewInit {
   idColumn = ['_id']
   macColumns = ['Area', 'City', 'State', 'Country']
   allColumns = [ this.customColumn, ...this.defaultColumns, ...this.macColumns, ...this.editColumns, ...this.deleteColumns ];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private _matDialog: NbDialogService, private windowService: NbWindowService, private _liveAnnouncer: LiveAnnouncer,
     private toastr:NbToastrService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<Device>,
@@ -106,13 +104,13 @@ export class DevicesComponent implements AfterViewInit {
     })
   }
 
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
+  // announceSortChange(sortState: Sort) {
+  //   if (sortState.direction) {
+  //     this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  //   } else {
+  //     this._liveAnnouncer.announce('Sorting cleared');
+  //   }
+  // }
 
   deleteDeviceById(id){
     let sheetRef = this.windowService.open(DialogContentComponent, {buttons: {fullScreen: false, close: false, maximize: false, minimize: false}, closeOnBackdropClick: false, closeOnEsc: false});
